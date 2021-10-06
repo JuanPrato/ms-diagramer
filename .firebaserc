@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ms-diagramer": {
+      "hosting": {
+        "ms-diagramer": [
+          "ms-diagramer"
+        ]
+      }
+    }
+  }
+}
