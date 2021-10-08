@@ -1,0 +1,11 @@
+<ng-form class="form" [formGroup]="loginForm" (submit)="submit()" >
+  <mat-form-field appearance="legacy">
+    <mat-label>Email</mat-label>
+    <input matInput matNativeControl type="text" [formControlName]="'email'"/>
+  </mat-form-field>
+  <mat-form-field appearance="legacy">
+    <mat-label>Password</mat-label>
+    <input matInput matNativeControl type="password" [formControlName]="'password'"/>
+  </mat-form-field>
+  <button mat-button class="submit" (click)="submit()">INGRESAR</button>
+</ng-form>

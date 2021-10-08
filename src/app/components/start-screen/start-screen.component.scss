@@ -1,0 +1,12 @@
+.startCard {
+  max-width: 400px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  button {
+    width: 100%;
+  }
+}

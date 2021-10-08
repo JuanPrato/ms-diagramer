@@ -26,8 +26,11 @@ $black-warn: mat.get-color-from-palette($warn-palette, 900);
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
+h1,h2,h3,h4,h5,h6 {
+  margin: 0 !important;
+  padding: 0 !important;
+}
 
 .bg-primary {
-  background-color: $primary-warn;
+  background-color: $white;
 }

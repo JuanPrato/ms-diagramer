@@ -1,0 +1,17 @@
+<mat-expansion-panel [expanded]="expand">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{ user ? user.displayName : "INVITADO" }}
+    </mat-panel-title>
+    <mat-panel-description>
+      <mat-icon>account_circle</mat-icon>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <div class="sessionOptions" *ngIf="user">
+    <button mat-button>PERFIL</button>
+    <button mat-button (click)="logOut()">CERRAR SESION</button>
+  </div>
+  <div class="sessionOptions" *ngIf="!user">
+    <app-login-form></app-login-form>
+  </div>
+</mat-expansion-panel>
