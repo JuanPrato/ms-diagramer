@@ -4,6 +4,10 @@ import {StartScreenComponent} from "./components/start-screen/start-screen.compo
 
 const routes: Routes = [
   {
+    path: 'register',
+    loadChildren: () => import('./modules/register/register.module').then(m => m.RegisterModule)
+  },
+  {
     path: "**",
     component: StartScreenComponent
   }

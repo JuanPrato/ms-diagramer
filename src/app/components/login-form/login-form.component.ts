@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login-form',
@@ -11,7 +12,7 @@ export class LoginFormComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private auth: AuthService) {
+  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) {
     this.loginForm = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
@@ -28,7 +29,9 @@ export class LoginFormComponent implements OnInit {
 
     try {
       const user = await this.auth.auth(email, password);
-      console.log(user);
+      if (user) {
+        await this.router.navigate(['/']);
+      }
     } catch (ex) {
       console.error(ex);
       this.loginForm.markAsDirty();

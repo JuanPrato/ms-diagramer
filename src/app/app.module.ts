@@ -16,13 +16,19 @@ import {AngularFireModule} from "@angular/fire/compat";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import {MatTableModule} from "@angular/material/table";
+import {MatListModule} from "@angular/material/list";
+import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
+import { AddGraphFormComponent } from './components/add-graph-form/add-graph-form.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
     AppComponent,
     SessionFeedbackComponent,
     StartScreenComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    AddGraphFormComponent
   ],
   imports: [
     BrowserModule,
@@ -30,15 +36,22 @@ import { LoginFormComponent } from './components/login-form/login-form.component
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
+    AngularFirestoreModule,
     MatButtonModule,
     MatIconModule,
     MatExpansionModule,
     MatCardModule,
     FormsModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule,
+    MatListModule,
+    MatDialogModule
   ],
   providers: [],
+  entryComponents: [
+    AddGraphFormComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

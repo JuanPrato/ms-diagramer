@@ -1,0 +1,22 @@
+<ng-form class="form" [formGroup]="registerForm">
+  <mat-form-field appearance="legacy">
+    <mat-label>Nombre completo</mat-label>
+    <input matInput matNativeControl type="text" [formControlName]="'name'" />
+  </mat-form-field>
+  <mat-form-field appearance="legacy">
+    <mat-label>Alias</mat-label>
+    <input matInput matNativeControl type="text" formControlName="alias" />
+  </mat-form-field>
+  <mat-form-field appearance="legacy">
+    <mat-label>Email</mat-label>
+    <input matInput matNativeControl type="email" formControlName="email" />
+  </mat-form-field>
+  <mat-form-field appearance="legacy">
+    <mat-label>Password</mat-label>
+    <input matInput [type]="hide ? 'password' : 'text'">
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+  <button mat-button class="submit">REGISTRARSE</button>
+</ng-form>
