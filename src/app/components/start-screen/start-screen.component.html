@@ -1,11 +1,25 @@
 <mat-card class="startCard">
-  <mat-card-title>INGRESA PARA VER MÁS</mat-card-title>
-  <mat-card-content>
-    <p>
-      Para poder crear diagramas debes iniciar sesion
-    </p>
-  </mat-card-content>
-  <mat-card-actions class="actions">
-    <a mat-button>Registrarse</a>
-  </mat-card-actions>
+  <div *ngIf="!user">
+    <mat-card-title>INGRESA PARA VER MÁS</mat-card-title>
+    <mat-card-content>
+      <p>
+        Para poder crear diagramas debes iniciar sesion
+      </p>
+    </mat-card-content>
+    <mat-card-actions class="actions">
+      <a mat-button [routerLink]="['/register']">Registrarse</a>
+    </mat-card-actions>
+  </div>
+  <div *ngIf="user">
+    <mat-card-title>MIS GRAFICOS</mat-card-title>
+    <mat-card-content>
+      <mat-nav-list #graphsList>
+        <a mat-list-item [href]="'/graph/' + graph.id" class="link" *ngFor="let graph of graphs">{{ graph.name }}</a>
+      </mat-nav-list>
+      <mat-card-actions class="actions">
+        <button mat-button (click)="newGraph()">Nuevo grafico</button>
+      </mat-card-actions>
+    </mat-card-content>
+  </div>
+
 </mat-card>

@@ -26,6 +26,9 @@ $black-warn: mat.get-color-from-palette($warn-palette, 900);
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+* {
+  box-sizing: border-box;
+}
 h1,h2,h3,h4,h5,h6 {
   margin: 0 !important;
   padding: 0 !important;
@@ -33,4 +36,9 @@ h1,h2,h3,h4,h5,h6 {
 
 .bg-primary {
   background-color: $white;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
 }
