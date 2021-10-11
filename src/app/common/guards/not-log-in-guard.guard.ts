@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {AuthService} from "../../services/auth.service";
 
 @Injectable({
@@ -14,7 +14,11 @@ export class NotLogInGuardGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return !this.auth.isLogIn();
+    const sub = new BehaviorSubject<boolean>(true);
+    this.auth.isLogIn().subscribe(i => {
+        sub.next(!i);
+    });
+    return sub;
   }
 
 }
