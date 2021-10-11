@@ -20,7 +20,7 @@ $primary-warn: mat.get-color-from-palette($warn-palette, 500);
 $white: mat.get-color-from-palette($primary-palette, 200);
 $white-acc: mat.get-color-from-palette($accent-palette, 200);
 $white-warn: mat.get-color-from-palette($accent-palette, 200);
-$black: mat.get-color-from-palette($warn-palette, 900);
+$black: mat.get-color-from-palette($primary-palette, 900);
 $black-acc: mat.get-color-from-palette($accent-palette, 900);
 $black-warn: mat.get-color-from-palette($warn-palette, 900);
 
@@ -36,6 +36,18 @@ h1,h2,h3,h4,h5,h6 {
 
 .bg-primary {
   background-color: $white;
+}
+
+.bg-black-warn {
+  background-color: $black-warn;
+}
+
+.bg-black-accent {
+  background-color: $black;
+}
+
+.color-white {
+  color: white;
 }
 
 .link {

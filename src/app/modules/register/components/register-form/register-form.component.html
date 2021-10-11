@@ -1,22 +1,29 @@
 <ng-form class="form" [formGroup]="registerForm">
   <mat-form-field appearance="legacy">
-    <mat-label>Nombre completo</mat-label>
-    <input matInput matNativeControl type="text" [formControlName]="'name'" />
-  </mat-form-field>
-  <mat-form-field appearance="legacy">
-    <mat-label>Alias</mat-label>
-    <input matInput matNativeControl type="text" formControlName="alias" />
+    <mat-label>Nombre de usuario</mat-label>
+    <input matInput matNativeControl type="text" formControlName="user" />
+    <mat-error *ngIf="getInvalidity('user')">{{ getError('user') }}</mat-error>
   </mat-form-field>
   <mat-form-field appearance="legacy">
     <mat-label>Email</mat-label>
     <input matInput matNativeControl type="email" formControlName="email" />
+    <mat-error *ngIf="getInvalidity('email')">{{ getError('email') }}</mat-error>
   </mat-form-field>
   <mat-form-field appearance="legacy">
     <mat-label>Password</mat-label>
-    <input matInput [type]="hide ? 'password' : 'text'">
+    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+    <mat-error *ngIf="getInvalidity('password')">{{ getError('password') }}</mat-error>
     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
     </button>
   </mat-form-field>
-  <button mat-button class="submit">REGISTRARSE</button>
+  <mat-form-field appearance="legacy">
+    <mat-label>Confirm password</mat-label>
+    <input matInput [type]="hide ? 'password' : 'text'" autocomplete="off" formControlName="confirmPassword">
+    <mat-error *ngIf="getInvalidity('confirmPassword')">{{ getError('confirmPassword') }}</mat-error>
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+  <button mat-button class="submit" (click)="submit()">REGISTRARSE</button>
 </ng-form>
