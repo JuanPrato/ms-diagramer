@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 import firebase from "firebase/compat";
 import User = firebase.User;
 import {AngularFireAuth} from "@angular/fire/compat/auth";
@@ -10,7 +10,13 @@ import InvalidCredentialsException from "../exceptions/InvalidCredentialsExcepti
 })
 export class AuthService {
 
-  constructor(private fireAuth: AngularFireAuth) { }
+  private isLogInSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
+  constructor(private fireAuth: AngularFireAuth) {
+    this.fireAuth.user.subscribe(u => {
+      this.isLogInSubject.next(u !== null);
+    })
+  }
 
   async auth (user: string, password: string) {
     if (!user || !password) throw new InvalidCredentialsException();
@@ -30,8 +36,8 @@ export class AuthService {
     return this.fireAuth.user;
   }
 
-  async isLogIn(): Promise<boolean> {
-    return (await this.fireAuth.user.toPromise()) !== null;
+  isLogIn(): Observable<boolean> {
+    return this.isLogInSubject.asObservable();
   }
 
 }
