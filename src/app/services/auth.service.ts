@@ -21,15 +21,17 @@ export class AuthService {
     await this.fireAuth.signOut();
   }
 
-  async register (email: string, password: string, username: string, alias: string) {
+  async register (email: string, password: string, alias: string) {
     const userCreated = await this.fireAuth.createUserWithEmailAndPassword(email, password);
-    userCreated.additionalUserInfo!.username = username;
-    userCreated.user!.displayName = alias;
-    await this.fireAuth.updateCurrentUser(userCreated.user);
+    await userCreated.user!.updateProfile({displayName: alias});
   }
 
   getCurrentUser (): Observable<User | null> {
     return this.fireAuth.user;
+  }
+
+  async isLogIn(): Promise<boolean> {
+    return (await this.fireAuth.user.toPromise()) !== null;
   }
 
 }

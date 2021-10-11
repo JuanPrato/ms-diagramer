@@ -1,0 +1,15 @@
+{
+  "register": {
+    "validationsErrors": {
+      "necessary": "Campo obligatorio",
+      "length": "El valor debe tener entre %i y %i caracteres de largo",
+      "name": [],
+      "password": [
+        "La contraseña debe incluir al menos una minuscula y una mayuscula"
+      ],
+      "email": [
+        "Email invalido"
+      ]
+    }
+  }
+}

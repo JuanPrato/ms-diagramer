@@ -1,20 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
-import {AuthService} from "../../../../services/auth.service";
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
 
-  constructor(private auth: AuthService, private router: Router) { }
-
-  async ngOnInit() {
-    if (await this.auth.getCurrentUser().toPromise()) {
-      await this.router.navigate(['/']);
-    }
-  }
+  constructor() { }
 
 }
