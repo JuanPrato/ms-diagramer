@@ -10,6 +10,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/register/register.module').then(m => m.RegisterModule),
   },
   {
+    path: 'graph',
+    loadChildren: () => import('./modules/graph/graph.module').then(m => m.GraphModule)
+  },
+  {
     path: "**",
     component: StartScreenComponent
   }

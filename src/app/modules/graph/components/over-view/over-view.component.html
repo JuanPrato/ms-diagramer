@@ -1,0 +1,10 @@
+<mat-card class="layout">
+  <mat-card-title>{{ graph?.name }}</mat-card-title>
+  <mat-card-content class="content x-scroll">
+    <div class="h-100 mr-1 step" *ngFor="let step of steps; let i = index">
+      <app-graph-step class="h-100" [step]="step"></app-graph-step>
+      <mat-icon class="arrow" *ngIf="i != (steps.length-1) ">arrow_forward_ios</mat-icon>
+    </div>
+    <button mat-button (click)="addNewStep()"><mat-icon>add</mat-icon></button>
+  </mat-card-content>
+</mat-card>

@@ -11,11 +11,13 @@ import InvalidCredentialsException from "../exceptions/InvalidCredentialsExcepti
 export class AuthService {
 
   private isLogInSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private user: User | null = null;
 
   constructor(private fireAuth: AngularFireAuth) {
     this.fireAuth.user.subscribe(u => {
       this.isLogInSubject.next(u !== null);
-    })
+      this.user = u;
+    });
   }
 
   async auth (user: string, password: string) {
@@ -32,8 +34,12 @@ export class AuthService {
     await userCreated.user!.updateProfile({displayName: alias});
   }
 
-  getCurrentUser (): Observable<User | null> {
+  getCurrentUserObservable (): Observable<User | null> {
     return this.fireAuth.user;
+  }
+
+  getCurrentUser (): User | null {
+    return this.user;
   }
 
   isLogIn(): Observable<boolean> {

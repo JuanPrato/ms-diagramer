@@ -1,0 +1,9 @@
+<a [href]="'/graph/' + interaction.graph + '/' + interaction.id" class="link">
+  <mat-card class="card">
+      <img
+        mat-card-image alt="source"
+        [src]="interaction.image ? interaction.image : '/assets/images/screen1R.jpg'"
+      />
+      <mat-card-title>{{ interaction.title && interaction.title }}</mat-card-title>
+  </mat-card>
+</a>

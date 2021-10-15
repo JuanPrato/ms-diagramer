@@ -19,7 +19,7 @@ export class SessionFeedbackComponent implements OnInit, OnDestroy {
   constructor(private auth: AuthService) {}
 
   ngOnInit(): void {
-    this.auth.getCurrentUser().pipe(takeUntil(this.destroy$)).subscribe(u => {
+    this.auth.getCurrentUserObservable().pipe(takeUntil(this.destroy$)).subscribe(u => {
       this.user = u;
     });
     setTimeout(() => {

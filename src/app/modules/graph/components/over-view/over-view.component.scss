@@ -1,0 +1,51 @@
+@import "src/app/variables";
+
+.layout {
+  height: 85vh;
+  width: 90vw;
+  margin-top: 5vh;
+  min-width: 400px;
+  min-height: 400px;
+  display: flex;
+  justify-content: left;
+}
+
+.content {
+  margin: 0 1rem;
+  height: 100%;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  padding-bottom: 20px;
+
+  button {
+    height: 100%;
+    border-radius: 15px;
+    border: 1px solid $gray;
+  }
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  .arrow {
+    margin-left: 15px;
+  }
+}
+
+.x-scroll {
+  overflow-x: scroll;
+}
+
+::-webkit-scrollbar {
+  height: 5px;
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: black;
+}
+
+::-webkit-scrollbar-thumb {
+  background: white;
+}

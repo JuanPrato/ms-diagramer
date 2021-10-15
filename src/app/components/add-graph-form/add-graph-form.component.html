@@ -1,12 +1,15 @@
 <h1 mat-dialog-title>Agregar un grafico</h1>
 <div mat-dialog-content>
   <p>Elige un nombre para tu nuevo grafico</p>
-  <mat-form-field appearance="fill">
-    <mat-label>Nombre</mat-label>
-    <input matInput>
-  </mat-form-field>
+  <ng-form [formGroup]="graphForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="name">
+      <mat-error *ngIf="invalid">{{ "Campo necesario" }}</mat-error>
+    </mat-form-field>
+  </ng-form>
 </div>
 <div mat-dialog-actions class="actions">
-  <button mat-button>Cancelar</button>
-  <button mat-button>Agregar</button>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button (click)="submit()">Agregar</button>
 </div>

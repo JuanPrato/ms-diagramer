@@ -30,7 +30,7 @@ export class StartScreenComponent implements OnInit, OnDestroy {
               private dialog: MatDialog) { }
 
   ngOnInit() {
-    this.auth.getCurrentUser().pipe(takeUntil(this.destroy$)).subscribe(u => {
+    this.auth.getCurrentUserObservable().pipe(takeUntil(this.destroy$)).subscribe(u => {
       this.user = u;
       this.newUser$.next(true);
       this.newUser$.complete();

@@ -1,0 +1,6 @@
+<div class="layout">
+  <div class="step">
+    <app-over-view-interaction *ngFor="let interaction of step.interactions" [interaction]="interaction"></app-over-view-interaction>
+  </div>
+  <button mat-button (click)="addInteraction()"><mat-icon>add</mat-icon>INTERACCIÓN</button>
+</div>
